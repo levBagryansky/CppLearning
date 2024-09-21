@@ -1,0 +1,5 @@
+#include "aboba.h"
+
+int main() {
+    return 0;
+}}
