@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cassert>
+#include <vector>
+#include <iterator>
 
 class FactorsGen {
 public:
@@ -25,18 +27,24 @@ public:
         return num_ != 1;
     }
 
+    template<typename OutIt>
+    static void allFactors(int num, OutIt start) {
+        FactorsGen gen{num};
+        while (gen.notEmpty()) {
+            *start = gen.next();
+            ++start;
+        }
+    }
+
 private:
     int num_;
     int curr_prime_{2};
 };
 
 int main(int argc, char *argv[]) {
-    FactorsGen gen{16};
-    while (gen.notEmpty()) {
-        std::cout << gen.next() << " ";
-    }
-    std::cout << std::endl;
+    int num = std::stoi(argv[1], nullptr);
+    std::vector<int> vector;
+    FactorsGen::allFactors(num, std::back_inserter(vector));
+    FactorsGen::allFactors(num, std::ostream_iterator<int>(std::cout, " "));
     return 0;
 }
-
-
