@@ -3,7 +3,7 @@
 struct Hack {
 
     Hack() {
-        std::cout << "А руки то вот они" << std::endl;
+        std::cout << "Hello world" << std::endl;
     }
 };
 
