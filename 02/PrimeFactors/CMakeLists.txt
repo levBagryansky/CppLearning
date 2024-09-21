@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.26)
-project(EmptyMain)
+project(PrimeFactors)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(EmptyMain1 main1.cpp)
+add_executable(PrimeFactors main.cpp)
