@@ -2,6 +2,7 @@
 #include <cassert>
 #include <vector>
 #include <iterator>
+#include <unordered_map>
 
 struct Item {
     int len_;
@@ -23,17 +24,20 @@ class SafeVector {
 public:
     void set(size_t index, T item) {
         if (index >= data_.size()) {
-            ++counter;
-            data_.resize(data_.size() * 2);
+            std::cout << "set to map" << std::endl;
+            map_[index] = item;
         }
-        data_[index] = item;
+        else {
+            data_[index] = item;
+        }
     }
 
     Item get(int index) {
-        if (index < data_.size())
+        if (index >= data_.size()) {
+            return map_[index];
+        } else {
             return data_[index];
-        else
-            return T{};
+        }
     }
 
     ~SafeVector() {
@@ -41,12 +45,13 @@ public:
         for (int i = 10001; i < data_.size(); ++i) {
             count_of_inited += data_[i].inited();
         }
-        std::cout << "count of inited after 10000 = " << count_of_inited << "/" << data_.size() << " = 1/" << data_.size() / count_of_inited << std::endl;
+        std::cout << "count of inited after 10000 = " << count_of_inited << "/" << data_.size() << std::endl;
     }
 
 private:
-    static constexpr int THRESHOLD = 10000;
+    static constexpr int THRESHOLD = 10001;
     std::vector<T> data_{THRESHOLD};
+    std::unordered_map<int, Item> map_{};
 };
 
 class Collatz {
