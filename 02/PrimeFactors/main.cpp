@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <iterator>
+#include <string>
 
 #include "factors-gen.h"
 
