@@ -5,7 +5,7 @@
 int main() {
     Collatz collatz{};
     int num, max = 0;
-    for (int i = 1; i < 10000; ++i) {
+    for (int i = 1; i <= 10000; ++i) {
         int len = collatz.calcLen(i);
         num = len > max ? i : num;
         max = len > max ? len : max;
