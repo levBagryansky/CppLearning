@@ -24,7 +24,6 @@ class SafeVector {
 public:
     void set(size_t index, T item) {
         if (index >= data_.size()) {
-            std::cout << "set to map" << std::endl;
             map_[index] = item;
         }
         else {
