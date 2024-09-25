@@ -15,8 +15,8 @@ jobs:
     strategy:
       matrix:
         ctect_option:
-          - "-DMEMSAN=ON"
-          - "-DMEMSAN=OFF"
+          - "-DMEMSAN=1"
+          - "-DMEMSAN=0"
     steps:
       - uses: actions/checkout@v3
 
