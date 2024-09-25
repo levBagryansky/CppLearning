@@ -1,1 +1,1 @@
-cxec_test(factors-gen-test.cpp)
+my_test(factors-gen-test.cpp)
