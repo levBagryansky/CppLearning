@@ -16,9 +16,9 @@ jobs:
       matrix:
         conf:
           - option: "-DMEMSAN=1"
-            make-target: "make test-san"
+            make-target: "test-san"
           - option: "-DMEMSAN=0"
-            make-target: "make test"
+            make-target: "test"
     steps:
       - uses: actions/checkout@v3
 
