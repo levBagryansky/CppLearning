@@ -12,15 +12,22 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        conf:
+          - option: "-DMEMSAN=1"
+            make-target: "test-san"
+          - option: "-DMEMSAN=0"
+            make-target: "test"
     steps:
       - uses: actions/checkout@v3
 
       - name: Configure CMake
-        run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+        run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} ${{matrix.conf.option}}
 
       - name: Build
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
       - name: Test
         working-directory: ${{github.workspace}}/build
-        run:  make test
+        run:  make ${{matrix.conf.make-target}}
