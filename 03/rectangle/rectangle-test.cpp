@@ -61,8 +61,9 @@ TEST(RectangleIntersections, RectangleIntersectLine) {
 
 TEST(RectangleIntersections, RectangleInside) {
     const Rectangle rect1({0, 0}, 4, 4);
-    const Rectangle rect2({1, 1}, 2, 2);
-    auto result = intersection({rect1, rect2});
+    const Rectangle rect2({0, 0}, 2, 2);
+    const Rectangle rect3({ -1, -2 }, 3, 4);
+    auto result = intersection({rect1, rect2, rect3 });
     EXPECT_EQ(result, 4);
 }
 

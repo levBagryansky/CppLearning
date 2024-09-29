@@ -10,8 +10,8 @@ struct Point {
 
 class Rectangle{
 public:
-    Rectangle(int x, int y, int len_x, int len_y): left_lower_({x, y}), right_higher_({x+len_x, y+len_y}) {}
-    Rectangle(Point left_lower, int len_x, int len_y): left_lower_(left_lower), right_higher_({left_lower.x_+len_x, left_lower.y_+len_y}) {}
+    Rectangle(int x, int y, int len_x, int len_y): left_lower_{x, y}, right_higher_{x+len_x, y+len_y} {}
+    Rectangle(Point left_lower, int len_x, int len_y): left_lower_(left_lower), right_higher_{left_lower.x_+len_x, left_lower.y_+len_y} {}
     Rectangle(Point left_lower, Point right_higher): left_lower_(left_lower), right_higher_(right_higher) {}
 
 public:
@@ -19,7 +19,7 @@ public:
     Point right_higher_;
 };
 
-uint intersection(const std::vector<Rectangle>& vct) {
+unsigned int intersection(const std::vector<Rectangle>& vct) {
     if (vct.empty()) {
         return 0;
     }
