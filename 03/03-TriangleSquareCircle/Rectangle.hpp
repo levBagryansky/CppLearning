@@ -5,10 +5,10 @@
 class Rectangle: public IPolygon, public IShape {
 public:
     Rectangle(double length, double width): length_(length), width_(width) {}
-    double perimeter() override {
+    double perimeter() const override {
         return 2 * (length_ + width_);
     }
-    double area() override {
+    double area() const override {
         return length_ * width_;
     }
 

@@ -5,7 +5,7 @@
 class Circle final: public Ellipse {
 public:
     explicit Circle(double rad): Ellipse(rad, rad) {}
-    double perimeter() override {
+    double perimeter() const override {
         return 2 * std::numbers::pi * Ellipse::a_;
     }
 };
