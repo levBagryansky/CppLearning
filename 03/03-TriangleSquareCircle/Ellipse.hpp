@@ -7,12 +7,12 @@
 class Ellipse: public IShape {
 public:
     Ellipse(double semiMajorAxis, double semiMinorAxis): a_(semiMajorAxis), b_(semiMinorAxis) {}
-    double perimeter() override {
+    double perimeter() const override {
         return std::numbers::pi * std::sqrt(
             2 * (a_ * a_ + b_ * b_)
         );
     }
-    double area() override {
+    double area() const override {
         return std::numbers::pi * b_ * a_;
     }
 

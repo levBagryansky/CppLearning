@@ -6,7 +6,7 @@
 class Square final: public Rectangle {
 public:
     explicit Square(double side): Rectangle(side, side) {};
-    double perimeter() override {
+    double perimeter() const override {
         return 4 * Rectangle::width_;
     }
 };
