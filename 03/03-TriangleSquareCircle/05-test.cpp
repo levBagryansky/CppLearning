@@ -1,5 +1,7 @@
 #include <gtest/gtest.h>
 
+#include <algorithm>
+
 #include "interfaces.hpp"
 #include "Rectangle.hpp"
 #include "Triangle.hpp"
