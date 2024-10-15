@@ -9,7 +9,7 @@ public:
     friend std::istream & operator>>(std::istream & istream, IPv4 & ipv4) {
         char dot;
         constexpr auto ERROR = "Correct format of IPv4: <u8>.<u8>.<u8>.<u8>";
-        uint first, second, third, fourth;
+        unsigned int first, second, third, fourth;
         istream >> first >> dot;
         if (dot != '.' || first > 255)
             throw std::runtime_error(ERROR);

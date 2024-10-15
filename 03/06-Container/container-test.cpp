@@ -50,3 +50,18 @@ TEST(Container, ContainerAssignment) {
     std::cout << "aboba is created" << std::endl;
     EXPECT_EQ(aboba.size(), 2);
 }
+
+TEST(Container, ZeroElement) {
+    Container<int> ints;
+    ints.push_back(2);
+    EXPECT_EQ(ints[0], 2);
+}
+
+TEST(Container, MoveContainer) {
+    Container<int> ints;
+    ints.push_back(1);
+    ints.push_back(2);
+    ints.push_back(3);
+    Container<int> ints_2(std::move(ints));
+    EXPECT_EQ(ints.size(), 0);
+}
