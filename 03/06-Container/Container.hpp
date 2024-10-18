@@ -140,7 +140,7 @@ T& Container<T>::back() {
 
 template<typename T>
 T &Container<T>::operator[](int index) const {
-    if (index > size_ || index <= 0) {
+    if (index > size_ || index < 0) {
         throw std::runtime_error("Index is out of boundaries");
     }
 
@@ -149,7 +149,7 @@ T &Container<T>::operator[](int index) const {
 
 template<typename T>
 T &Container<T>::operator[](int index) {
-    if (index > size_ || index <= 0) {
+    if (index > size_ || index < 0) {
         throw std::runtime_error("Index is out of boundaries");
     }
 
