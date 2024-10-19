@@ -57,6 +57,8 @@ Container<T>::Container(Container&& other) noexcept
       size_(other.size_),
       capacity_(other.capacity_) {
           other.data_ = nullptr;
+          other.size_ = 0;
+          other.capacity_ = 0;
       }
 
 template <typename T>
@@ -140,7 +142,7 @@ T& Container<T>::back() {
 
 template<typename T>
 T &Container<T>::operator[](int index) const {
-    if (index > size_ || index <= 0) {
+    if (index > size_ || index < 0) {
         throw std::runtime_error("Index is out of boundaries");
     }
 
@@ -149,7 +151,7 @@ T &Container<T>::operator[](int index) const {
 
 template<typename T>
 T &Container<T>::operator[](int index) {
-    if (index > size_ || index <= 0) {
+    if (index > size_ || index < 0) {
         throw std::runtime_error("Index is out of boundaries");
     }
 
