@@ -65,3 +65,11 @@ TEST(Container, MoveContainer) {
     Container<int> ints_2(std::move(ints));
     EXPECT_EQ(ints.size(), 0);
 }
+
+TEST(Container, VarargPushBack) {
+    Container<int> ints;
+    ints.push_back(0, 1, 2, 3, 4, 5);
+    for (int i = 0; i < ints.size(); ++i) {
+        EXPECT_EQ(ints[i], i);
+    }
+}
