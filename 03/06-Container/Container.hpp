@@ -15,6 +15,13 @@ public:
     bool isEmpty() const;
     void clear();
     void push_back(const T& value);
+
+    template<typename ... Types>
+    void push_back(const T& value, const Types & ... values) {
+        push_back(value);
+        push_back(values...);
+    }
+
     T& front() const;
     T& front();
     T& back() const;
