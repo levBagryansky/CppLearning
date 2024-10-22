@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-
+#include <string>
 #include "Container.hpp"
 
 /**
@@ -72,4 +72,13 @@ TEST(Container, VarargPushBack) {
     for (int i = 0; i < ints.size(); ++i) {
         EXPECT_EQ(ints[i], i);
     }
+}
+
+TEST(Container, Template) {
+    Container<std::string> vStr;
+    vStr.push_back("www", "1db", "aaa", "asd");
+    EXPECT_EQ(vStr.front(), "www");
+    EXPECT_EQ(vStr[1], "1db");
+    EXPECT_EQ(vStr.back(), "asd");
+    EXPECT_EQ(vStr.size(), 4);
 }

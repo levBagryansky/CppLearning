@@ -1,5 +1,7 @@
 #pragma once
 
+using uint = unsigned int;
+
 template<uint Index>
 struct Fibonacci {
     constexpr static uint value = Fibonacci<Index - 1>::value + Fibonacci<Index - 2>::value;
