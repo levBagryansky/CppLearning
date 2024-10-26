@@ -3,6 +3,15 @@ project(CppLearning)
 
 set(CMAKE_CXX_STANDARD 23)
 
+set(Boost_USE_STATIC_LIBS OFF)
+set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_STATIC_RUNTIME OFF)
+find_package(Boost COMPONENTS )
+
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS})
+endif()
+
 # Adding testing
 include(FetchContent)
 FetchContent_Declare(
@@ -28,6 +37,7 @@ function(my_test SOURCE_NAME)
             )
     add_dependencies(test ${TARGET_NAME}_run)
 
+    target_link_libraries(${TARGET_NAME} ${Boost_LIBRARIES})
     if (MEMSAN)
         set(TARGET_NAME_SAN ${TARGET_NAME}_memsan)
         add_executable(
