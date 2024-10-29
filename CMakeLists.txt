@@ -3,14 +3,14 @@ project(CppLearning)
 
 set(CMAKE_CXX_STANDARD 23)
 
-set(Boost_USE_STATIC_LIBS OFF)
-set(Boost_USE_MULTITHREADED ON)
-set(Boost_USE_STATIC_RUNTIME OFF)
-find_package(Boost COMPONENTS )
+# set(Boost_USE_STATIC_LIBS OFF)
+# set(Boost_USE_MULTITHREADED ON)
+# set(Boost_USE_STATIC_RUNTIME OFF)
+# find_package(Boost COMPONENTS )
 
-if(Boost_FOUND)
-    include_directories(${Boost_INCLUDE_DIRS})
-endif()
+# if(Boost_FOUND)
+    # include_directories(${Boost_INCLUDE_DIRS})
+# endif()
 
 # Adding testing
 include(FetchContent)

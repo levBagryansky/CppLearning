@@ -8,8 +8,17 @@ struct Not {
 template<typename T>
 struct IsClass: Not<std::is_fundamental<T>> {};
 
+struct myInt
+{
+    int data;
+};
+
 TEST(IsClass, IsClass) {
     EXPECT_TRUE(IsClass<std::vector<int>>::value);
+}
+
+TEST(IsClass, IsMyClass) {
+    EXPECT_TRUE(IsClass<myInt>::value);
 }
 
 TEST(IsClass, IntNotClass) {
