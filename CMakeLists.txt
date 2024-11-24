@@ -20,12 +20,17 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-function(my_test SOURCE_NAME)
+function(my_test)
+    list(GET ARGN 0 SOURCE_NAME)
+    list(REMOVE_AT ARGN 0)
     get_filename_component(TARGET_NAME ${SOURCE_NAME} NAME_WE)
     add_executable(
             ${TARGET_NAME}
             ${SOURCE_NAME}
     )
+    foreach(arg IN LISTS ARGN)
+        target_sources(${TARGET_NAME} PUBLIC ${arg})
+    endforeach()
     target_link_libraries(
             ${TARGET_NAME}
             GTest::gtest_main
@@ -44,6 +49,10 @@ function(my_test SOURCE_NAME)
                 ${TARGET_NAME_SAN}
                 ${SOURCE_NAME}
         )
+        foreach(arg IN LISTS ARGN)
+            message(WARNING "Processing argument: ${arg}")
+            target_sources(${TARGET_NAME_SAN} PRIVATE ${arg})
+        endforeach()
         target_link_libraries(
                 ${TARGET_NAME_SAN}
                 GTest::gtest_main
