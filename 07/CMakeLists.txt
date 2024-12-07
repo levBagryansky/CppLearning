@@ -1,3 +1,4 @@
 add_subdirectory(01-SquareEquation)
 add_subdirectory(05-AddExceptions)
 add_subdirectory(03-person-optional)
+add_subdirectory(09-Bench)
