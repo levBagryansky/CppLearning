@@ -13,6 +13,7 @@ private:
 };
 
 Entity::Entity(): impl_(new Impl()) {}
+Entity::~Entity() {delete impl_;}
 
 void Entity::foo() {
     impl_->foo_impl();
