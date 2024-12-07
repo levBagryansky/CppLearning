@@ -50,7 +50,7 @@ function(my_test)
                 ${SOURCE_NAME}
         )
         foreach(arg IN LISTS ARGN)
-            message(WARNING "Processing argument: ${arg}")
+            message(STATUS "Processing argument: ${arg}")
             target_sources(${TARGET_NAME_SAN} PRIVATE ${arg})
         endforeach()
         target_link_libraries(
