@@ -2,6 +2,8 @@
 
 #include "Logger.hpp"
 
+int Logger::nesting = 0;
+
 void foo() {
     Logger logger{};
 }
