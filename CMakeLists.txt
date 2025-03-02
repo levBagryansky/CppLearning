@@ -39,6 +39,7 @@ function(my_test)
     gtest_discover_tests(${TARGET_NAME})
     add_custom_target(${TARGET_NAME}_run
             COMMAND ./${TARGET_NAME}
+            DEPENDS ${TARGET_NAME}
             )
     add_dependencies(test ${TARGET_NAME}_run)
 
@@ -67,6 +68,24 @@ function(my_test)
         add_dependencies(test-san ${TARGET_NAME_SAN}_run)
     endif()
 endfunction(my_test)
+
+# Make a test from .cpp file with main function inside.
+function(my_executable filename)
+    # Extract the base name without extension
+    string(REGEX REPLACE "\\.[^.]+$" "" target_name ${filename})
+
+    # Create an executable
+    add_executable(${target_name} ${filename})
+
+    # Create a custom target to run the executable
+    add_custom_target(${target_name}_run
+            COMMAND ./${target_name}
+            DEPENDS ${target_name}
+            )
+
+    # Add a dependency to a test target (modify as needed)
+    add_dependencies(test ${target_name}_run)
+endfunction()
 
 add_custom_target(test)
 if (MEMSAN)
