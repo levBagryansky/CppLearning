@@ -25,7 +25,7 @@ public:
 
 //  -------------------------------------------------------
 
-    void add_observer(std::unique_ptr<Observer>&& observer)
+    void add_observer(std::unique_ptr<Observer> observer)
     {
         m_observers.push_back(std::move(observer));
     }
