@@ -8,6 +8,10 @@ set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
 find_package(Boost COMPONENTS )
 
+message(STATUS "Compiler: ${CMAKE_CXX_COMPILER}")
+message(STATUS "Compiler Version: ${CMAKE_CXX_COMPILER_VERSION}")
+message(STATUS "C++ Standard: ${CMAKE_CXX_STANDARD}")
+
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
 endif()
