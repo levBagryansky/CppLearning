@@ -6,5 +6,6 @@ target_link_libraries(Bench PRIVATE benchmark::benchmark)
 
 add_custom_target(Bench_run
         COMMAND ./Bench
+        DEPENDS Bench
         )
 add_dependencies(test Bench_run)
