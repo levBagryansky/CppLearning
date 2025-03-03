@@ -8,9 +8,13 @@ set(CMAKE_CXX_STANDARD 23)
 # set(Boost_USE_STATIC_RUNTIME OFF)
 # find_package(Boost COMPONENTS )
 
-# if(Boost_FOUND)
-    # include_directories(${Boost_INCLUDE_DIRS})
-# endif()
+message(STATUS "Compiler: ${CMAKE_CXX_COMPILER}")
+message(STATUS "Compiler Version: ${CMAKE_CXX_COMPILER_VERSION}")
+message(STATUS "C++ Standard: ${CMAKE_CXX_STANDARD}")
+
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS})
+endif()
 
 # Adding testing
 include(FetchContent)
