@@ -1,20 +1,18 @@
 #pragma once
 
-#include "interfaces.hpp"
-
 #include <numbers>
 
+#include "interfaces.hpp"
+#include "Visitor.hpp"
+
 class Ellipse: public IShape {
+    friend class Serializer;
 public:
     Ellipse(double semiMajorAxis, double semiMinorAxis): a_(semiMajorAxis), b_(semiMinorAxis) {}
-    double perimeter() const override {
-        return std::numbers::pi * std::sqrt(
-            2 * (a_ * a_ + b_ * b_)
-        );
-    }
-    double area() const override {
-        return std::numbers::pi * b_ * a_;
-    }
+    void visit_by(const Visitor &visitor) const override;
+
+    double perimeter() const override;
+    double area() const override;
 
 protected:
     double a_, b_;
