@@ -2,6 +2,7 @@
 #include <iostream>
 #include <map>
 #include <cstring>
+#include <algorithm>
 
 TEST(DangerMap, ConstCast) {
     std::map<int, std::string> myMap = {{1, "one"}, {2, "two"}, {3, "three"}};
