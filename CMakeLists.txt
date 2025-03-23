@@ -27,7 +27,8 @@ FetchContent_MakeAvailable(googletest)
 function(my_test)
     list(GET ARGN 0 SOURCE_NAME)
     list(REMOVE_AT ARGN 0)
-    get_filename_component(TARGET_NAME ${SOURCE_NAME} NAME_WE)
+    string(REGEX REPLACE "/" "." BASE_NAME "${SOURCE_NAME}")
+    string(REGEX REPLACE "\\.[^.]+$" "" TARGET_NAME ${BASE_NAME})
     add_executable(
             ${TARGET_NAME}
             ${SOURCE_NAME}
