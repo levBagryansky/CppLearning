@@ -5,7 +5,11 @@
 #include <cassert>
 
 class Triangle: public IPolygon, public IShape {
+    friend class Serializer;
 public:
+    void visit_by(const Visitor &visitor) const override {
+        visitor.visit(*this);
+    }
     Triangle(double a, double b, double c): a_(a), b_(b), c_(c) {
         assert(a_ > 0.0);
         assert(b_ > 0.0);
@@ -22,6 +26,6 @@ public:
     }
 
 private:
-    double a_, b_, c_;
+    const double a_, b_, c_;
 };
 
