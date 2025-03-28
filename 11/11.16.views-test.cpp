@@ -2,13 +2,13 @@
 #include <ranges>
 #include <iostream>
 #include <vector>
-#include <range/v3/view/istream.hpp>
+//#include <range/v3/view/istream.hpp>
 #include <numeric>
-#include <range/v3/view/stride.hpp>
+//#include <range/v3/view/stride.hpp>
 
 TEST(ViewsTest, Istream) {
     std::istringstream input("10 20 30 40");
-    for (int x : ranges::istream_view<int>(input)) {
+    for (int x : std::ranges::istream_view<int>(input)) {
         std::cout << x << " ";
     }
     std::cout << std::endl;
@@ -40,7 +40,7 @@ TEST(ViewsTest, StrideViewSkipsElementsByStep) {
     std::vector<int> v(10);
     std::iota(v.begin(), v.end(), 0);  // [0, 1, ..., 9]
 
-    auto stride_view = v | ranges::views::stride(3);
+    auto stride_view = v | std::ranges::views::stride(3);
 
     std::vector<int> result(stride_view.begin(), stride_view.end());
     std::vector<int> expected = {0, 3, 6, 9};
