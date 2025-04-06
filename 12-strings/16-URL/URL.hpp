@@ -7,7 +7,6 @@ public:
         protocol_(std::move(protocol)), hostname_(std::move(hostname)), port_(std::move(port)), path_(std::move(path)){}
 
     explicit URL(const std::string &src) {
-        auto reg = R"(^(https?)://([^:/\s]+)(?::(\d+))?(/[^?\s]*)?)";
         std::regex url_regex(R"(^(https?)://([^:/\s]+)(?::(\d+))?(/[^?\s]*)?)");
 
         std::smatch match;
@@ -17,7 +16,7 @@ public:
             port_ = match[3];
             path_ = match[4];
         } else {
-            std::cout << "Incorrect URL\n";
+            throw std::runtime_error("Incorrect url: " + src);
         }
 
     }

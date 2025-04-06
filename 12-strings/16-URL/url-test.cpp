@@ -8,3 +8,7 @@ TEST(URL, CTOR) {
         URL("https", "github.com", "", "/aboba/12-strings")
     );
 }
+
+TEST(URL, InvalidInput) {
+    EXPECT_THROW(URL("aboba"), std::runtime_error);
+}
