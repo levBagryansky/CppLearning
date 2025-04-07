@@ -1,3 +1,6 @@
 add_subdirectory(02-sso-bench)
 add_subdirectory(05-HexStringToBytes)
 add_subdirectory(09)
+my_test(12.15.emails-test.cpp)
+add_subdirectory(16-URL)
+add_subdirectory(20-RevertPolishNotation)
