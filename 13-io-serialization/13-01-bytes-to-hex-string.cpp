@@ -2,6 +2,7 @@
 
 #include <iomanip>
 #include <list>
+#include <array>
 
 template<std::ranges::range Range> requires std::same_as<typename Range::value_type, uint8_t>
 std::string toHexString(const Range& data) {

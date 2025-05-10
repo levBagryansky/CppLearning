@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
+#include <algorithm>
+#include <string>
 
 std::vector<int> getNextRow(const std::vector<int>& prev) {
     std::vector<int> row;
